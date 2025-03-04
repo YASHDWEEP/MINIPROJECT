@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Attendance System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Preloader (Shown for 2 seconds) -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Main Content (Hidden Initially) -->
+    <div class="background" id="main-content" style="display: none;">
+        <div class="container">
+            <h2 class="fade-in">Teacher Login</h2>
+            <input type="text" id="username" placeholder="Enter Username" class="input-field">
+            <input type="password" id="password" placeholder="Enter Password" class="input-field">
+            <button class="btn" onclick="login()">Login</button>
+            <p class="fade-in">Don't have an account? <a href="#" onclick="signup()">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Preloader Function (Hides after 2 seconds)
+        window.onload = function () {
+            setTimeout(() => {
+                document.querySelector(".preloader").style.display = "none";
+                document.getElementById("main-content").style.display = "flex";
+            }, 2000); // 2-second delay
+        };
+
+        function signup() {
+            let user = prompt("Enter new username:");
+            let pass = prompt("Enter new password:");
+            if (user && pass) {
+                localStorage.setItem("teacherUser", user);
+                localStorage.setItem("teacherPass", pass);
+                alert("Signup successful! Please login.");
+            }
+        }
+
+        function login() {
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
+            let storedUser = localStorage.getItem("teacherUser");
+            let storedPass = localStorage.getItem("teacherPass");
+
+            if (user === storedUser && pass === storedPass) {
+                alert("Login successful!");
+                window.location.href = "attendance.html";
+            } else {
+                alert("Invalid credentials!");
+            }
+        }
+    </script>
+</body>
+</html>

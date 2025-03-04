@@ -1,0 +1,119 @@
+/* Full Page Preloader */
+.preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Loader Animation */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #ff4081;
+    border-top: 6px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Loader Spinning Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Background Animation */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #2196F3, #E91E63);
+    animation: gradientBG 6s infinite linear alternate;
+}
+
+@keyframes gradientBG {
+    0% { background: linear-gradient(45deg, #2196F3, #E91E63); }
+    100% { background: linear-gradient(45deg, #E91E63, #2196F3); }
+}
+
+/* Glassmorphism Login Box */
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Input Fields */
+.input-field {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+/* Button Styling */
+.btn {
+    width: 95%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #ff4081;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #ff1744;
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(255, 23, 68, 0.5);
+}
+
+/* Fade-in effect for text */
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Sign-up link */
+p a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+p a:hover {
+    color: #ffeb3b;
+    text-decoration: underline;
+}
+
+
+
+.header-text{
+    margin-left: 700px;
+    position: absolute;
+    color: yellow;
+    height: 45px;
+    font-size: 65px;
+    text-align: center;
+}

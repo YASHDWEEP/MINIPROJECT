@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Mark Attendance</h2>
+        <label>Student 1: John</label>
+        <select id="student1">
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+        </select>
+        <br>
+        <label>Student 2: Alice</label>
+        <select id="student2">
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+        </select>
+        <br>
+        <label>Student 3: Aryan </label>
+        <select id="student3">
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+        </select>
+
+        <button onclick="submitAttendance()">Submit</button>
+    </div>
+
+    <script>
+        function submitAttendance() {
+            let student1 = document.getElementById("student1").value;
+            let student2 = document.getElementById("student2").value;
+            let student3 = document.getElementById("student3").value;
+            let records = JSON.parse(localStorage.getItem("attendanceRecords")) || [];
+            let date = new Date().toLocaleString();
+            records.push({ date, student1, student2,student3 });
+            localStorage.setItem("attendanceRecords", JSON.stringify(records));
+            alert("Attendance saved!");
+            window.location.href = "result.htm"; // Redirect to Result Page
+        }
+        
+    </script>
+</body>
+</html>

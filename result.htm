@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Records</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box">
+
+        <div class="container">
+            <h2>Attendance Records</h2>
+            <table border="1">
+                <tr>
+                    <th>Date & Time</th>
+                <th>John</th>
+                <th>Alice</th>
+                <th>Atharv</th>
+            </tr>
+            <tbody id="recordsTable"></tbody>
+        </table>
+    </div>
+    <button onclick="window.location.href='login_page.htm'">Back to Login</button>
+</div>
+
+
+    <script>
+        function loadRecords() {
+            let records = JSON.parse(localStorage.getItem("attendanceRecords")) || [];
+            let table = document.getElementById("recordsTable");
+            records.forEach(record => {
+                let row = `<tr>
+                    <td>${record.date}</td>
+                    <td>${record.student1}</td>
+                    <td>${record.student2}</td>
+                    <td>${record.student3}</td>
+                </tr>`;
+                table.innerHTML += row;
+            });
+        }
+        window.onload = loadRecords;
+    </script>
+</body>
+</html>
